@@ -14,7 +14,7 @@ mapFirstResolveableHostname() {
 			mapped="$hostname"
 		fi
 
-		if nslookup $hostname | grep "Name:\s${hostname}\(\..*\)\?$" > /dev/null
+		if ping -c 3 $hostname > /dev/null
 		then
 			echo $mapped
 			return
